@@ -69,7 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  var match = /^Hello,\s(.*)\!$/.exec(value);
+  let match = /^Hello,\s(.*)\!$/.exec(value);
   return match[1];
 }
 
@@ -202,7 +202,7 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  var horizSize = width - 2,
+  let horizSize = width - 2,
     horizLine = '─'.repeat(horizSize),
     spaceLine = ' '.repeat(horizSize),
     bottom = `└${horizLine}┘\n`,
@@ -229,11 +229,11 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
     encodedAlphabet = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
 
   return str.split('').map(ch => {
-    var index = alphabet.indexOf(ch);
+    let index = alphabet.indexOf(ch);
     return index === -1 ? ch : encodedAlphabet[index];
   }).join('');
 }
@@ -281,9 +281,9 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  var colors = '♣♦♥♠',
+  const colors = '♣♦♥♠',
     nums = 'A234567891JQK';
-  var color = value[value.length - 1],
+  let color = value[value.length - 1],
     num = value[0];
 
   return colors.indexOf(color) * 13 + nums.indexOf(num);
